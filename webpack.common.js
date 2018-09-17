@@ -5,10 +5,6 @@ const BUILD_DIR = path.resolve(__dirname, './client/dist');
 
 module.exports = {
   entry: path.resolve(SRC_DIR, 'index.jsx'),
-  output: {
-    path: BUILD_DIR,
-    filename: 'bundle.js',
-  },
   module: {
     rules: [
       {
@@ -18,7 +14,7 @@ module.exports = {
           {
             loader: 'babel-loader',
             options: {
-              presets: ['react', 'env'],
+              presets: ['@babel/env', '@babel/react'],
             },
           },
         ],
@@ -40,5 +36,9 @@ module.exports = {
   },
   resolve: {
     extensions: ['.js', '.jsx', '.css'],
+  },
+  output: {
+    path: BUILD_DIR,
+    filename: 'bundle.js',
   },
 };
